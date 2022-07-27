@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/server.dir/tcp_server.cpp.o CMakeFiles/server.dir/tcp_process.cpp.o -o server 

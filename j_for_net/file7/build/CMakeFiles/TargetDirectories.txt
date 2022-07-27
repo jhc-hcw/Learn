@@ -1,0 +1,4 @@
+/home/jhc/桌面/work/j_for_net/file7/build/CMakeFiles/client.dir
+/home/jhc/桌面/work/j_for_net/file7/build/CMakeFiles/server.dir
+/home/jhc/桌面/work/j_for_net/file7/build/CMakeFiles/edit_cache.dir
+/home/jhc/桌面/work/j_for_net/file7/build/CMakeFiles/rebuild_cache.dir

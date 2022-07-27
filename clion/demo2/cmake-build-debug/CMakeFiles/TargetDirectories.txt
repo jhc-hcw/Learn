@@ -1,0 +1,3 @@
+/media/jhc/SSD/Learning/clion/demo2/cmake-build-debug/CMakeFiles/demo2.dir
+/media/jhc/SSD/Learning/clion/demo2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/jhc/SSD/Learning/clion/demo2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
