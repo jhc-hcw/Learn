@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/jhc/桌面/Learn'
+make: Leaving directory '/home/jhc/桌面/Learn'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
