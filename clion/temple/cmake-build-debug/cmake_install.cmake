@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/SSD/Learning/clion/temple
+# Install script for directory: /home/jhc/桌面/Learn/clion/temple
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/SSD/Learning/clion/temple/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jhc/桌面/Learn/clion/temple/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

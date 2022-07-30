@@ -1,4 +1,4 @@
-/snap/clion/198/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/198/bin/ninja/linux/ninja -G Ninja -S /mnt/SSD/Learning/clion/temple -B /mnt/SSD/Learning/clion/temple/cmake-build-debug
+/snap/clion/203/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /home/jhc/桌面/Learn/clion/temple -B /home/jhc/桌面/Learn/clion/temple/cmake-build-debug
 -- The C compiler identification is GNU 11.2.0
 -- The CXX compiler identification is GNU 11.2.0
 -- Detecting C compiler ABI info
@@ -13,4 +13,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /mnt/SSD/Learning/clion/temple/cmake-build-debug
+-- Build files have been written to: /home/jhc/桌面/Learn/clion/temple/cmake-build-debug

@@ -80,9 +80,16 @@ void quick_sort(vector<int> &v,int left,int right){
 }
 
 int main(){
-    vector<int> v={1,2,1,3,3,4,1,6};
-    quick_sort(v,0,v.size()-1);
-    for (auto i:v){
-        cout<<i<<" ";
+    //string s=" hello world ";
+    string s="  hello world  ";
+    for(auto i=s.begin();*i==' ';){
+        s.erase(i);
+        cout<<" skldfjsdlf";
     }
+    for(auto i=s.end()-1;*i==' ';){
+        s.erase(i);
+    }
+    s.erase(s.begin());
+    //cout<<Solution151().reverseWords(ss);
+    cout<<s;
 }

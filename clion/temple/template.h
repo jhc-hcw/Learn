@@ -654,3 +654,38 @@ public:
 
     }
 };
+
+class Solution151 {
+public:
+    string reverseWords(string s) {
+        for(auto i=s.begin();*i==' ';){
+            s.erase(i);
+        }
+        for(auto i=s.end()-1;*i==' ';i--){
+            s.erase(i);
+        }
+        int h=s.length()-1,r=h;
+        string result;
+        while(true){
+            if(s[r]!=' ' && r>0){
+                r--;
+            }else if(s[r]==' '&& r>0){
+                if(h!=r)
+                    result.append(s.substr(r+1,h-r)+" ");
+                r--;
+                h=r;
+            }else if(r==0){
+                if(h==r){
+                    result.append(1,s[r]);
+                }else{
+                    result.append(s.substr(r,h-r+1)+" ");
+                }
+                break;
+            }
+        }
+        for(auto i=result.end()-1;*i==' ';i--){
+            result.erase(i);
+        }
+        return result;
+    }
+};

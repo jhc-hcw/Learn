@@ -41,3 +41,16 @@ VAR被定义就定义出来，没有就是注释。
 if(ENABLE)
 	set(VAR 'aaa')
 endid()
+
+
+
+# 2022 7.30
+
+gdb      输入:r(run) 运行程序，输入:b(break)  [函数名|行号] 进行断点，输入:info  b  可查看断电情况
+
+输入:n(next) 向下走一行     list列出代码    quit退出    p(print)打印变量    display[变量名] 始终显示某变量
+
+shell +命令    直接运行bash命令      set  logging on 自动记录日志到文件中
+
+watch  变量地址    持续观察变量变化情况     info watchpoint   查看监控情况
+
