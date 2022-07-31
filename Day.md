@@ -54,3 +54,23 @@ shell +命令    直接运行bash命令      set  logging on 自动记录日志�
 
 watch  变量地址    持续观察变量变化情况     info watchpoint   查看监控情况
 
+
+
+# 2022 7.31
+
+sudo systemctl daemon-reload 刷新
+
+
+
+git config --global user.name "jhc"
+
+git config --global user.email "jhc"
+
+ssh-keygen -t rsa -C "2654192132@qq.com"
+
+ssh -T git@github.com
+
+sudo apt install openssh-server
+
+## 输入查找激活：services.http.response.headers.location: account.jetbrains.com/fls-auth
+

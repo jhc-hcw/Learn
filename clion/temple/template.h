@@ -400,7 +400,7 @@ public:
     }
 };
 
-    class Solution_circlelink {
+class Solution142 {
     public:
         ListNode *detectCycle(ListNode *head) {
             set<ListNode *> s;
@@ -689,3 +689,85 @@ public:
         return result;
     }
 };
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution19 {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        auto p=head;
+        int count=1;
+        while(p->next){
+            p=p->next;
+            count++;
+        }
+        if(n==count){
+            p=head;
+            head=head->next;
+            //delete(p);
+            return head;
+        }
+        int sub=count-n;
+        p=head;
+        for(int i=1;i<sub;i++){
+            p=p->next;
+        }
+        p->next=p->next->next;
+        //delete(p->next);
+        return head;
+    }
+};
+
+class Solution28 {
+public:
+    int strStr(string haystack, string needle) {
+        return  kmp(haystack,needle);
+    }
+    void next_str(string &s,vector<int> &next){
+        int k=-1,j=0;
+        next[0] =-1;
+        next[1] =0;
+        while(j<s.length()){
+            if(k==-1 || s[k] == s[j]){
+                k++;
+                j++;
+                if(k==0){
+                    next[j] = k;
+                }else{
+                    next[j]=k+1;
+                }
+            }else{
+                k=next[k];
+            }
+        }
+    }
+    int kmp(string s,string ss){
+        int k=-1,j=-1,ll=ss.length(),l=s.length();
+        vector<int>  a(l);
+        next_str(s,a);
+        while(k<l && j<ll){
+            if(k==-1 || s[k] ==ss[j]){
+                j++;k++;
+            }else{
+                k=a[k];
+                if(k>0){
+                    j++;
+                }
+            }
+        }
+        if(k==l){
+            return j-l+1;
+        }else{
+            return -1;
+        }
+    }
+};
+
