@@ -74,4 +74,31 @@ sudo apt install openssh-server
 
 ## 输入查找激活：services.http.response.headers.location: account.jetbrains.com/fls-auth
 
-``` 1111111111111```
+# 2022 8.1
+
+vim command mode:
+
+ctrl + f  向下翻一页 |   ctrl +d  向下翻半页
+
+ctrl + b 向上一页     |   ctrl + u向上半页
+
+单输入 0  光标跳到该行首，最前面。  $    跳到末尾
+
+gg  跳到最开头    G 跳到最末尾
+
+/world    查找world      接下来按n移动到下一个，N上一个       ?world往上找
+
+x    删除后面一个字符    X删除前面一个字符等于backspace
+
+dd  删除光标一整行（吐了，应该记得），   yy  复制一行,方到粘贴板     再按p|P 粘贴
+
+p向下粘贴   P向上粘贴         u撤销一个动作    ctrl+r  | . 重复上一条动作。
+
+i   光标不动，从光表前插入       a  光标向后移动一下，光标所指字母后面插入    A 走到光标最后开始插入（应该好用的）
+
+o 向下另起一行插入    O向上另起一行插入      r和R  替换，不同的是R会一直保持
+
+
+
+ 
+
