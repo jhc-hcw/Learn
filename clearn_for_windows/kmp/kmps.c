@@ -75,10 +75,11 @@ void nextstr(char *s,int *a,int l){
         if(k==-1 || s[k]==s[j] ){  //判断相等就两个步进都加，k=-1时则代表前缀长度为1（即第一个字符自己跟自己后面匹配开始的时候）而且已经判断过不相等，所以直接进行步进。       
             k++;
             j++;
-            if(k==0)
-                a[j]=k;
-            else
-                a[j]=k+1;   //根据定义，如果找到前后缀长度了，就把长度保存在数组后一个位置。
+            a[j]=k;
+          //  if(k==0)
+             //   a[j]=k;
+            //else
+                //a[j]=k+1;   //根据定义，如果找到前后缀长度了，就把长度保存在数组后一个位置。
         }else{
             k=a[k];
             //全算法最秀语句，也是最难懂的
@@ -117,8 +118,10 @@ int kmp(char *s,char *ss){
 
 int main(){
     char *ss="abadfjakdfababc";
-    char *s="ababc";
-    kmp(s,ss);
+    char *s="aaalaal";
+    int l=strl(s);
+    int a[l];
+    nextstr(s,a,l);
     return 1;
 }
 

@@ -80,6 +80,7 @@ void quick_sort(vector<int> &v,int left,int right){
 }
 
 int main(){
-    vector<int>  a(3);
-    cout<<a.size();
+    string ss="mississippi";
+    string s="issip";
+    cout<<Solution28().strStr(ss,s);
 }

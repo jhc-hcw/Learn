@@ -726,48 +726,38 @@ public:
     }
 };
 
-class Solution28 {
+class Solution28 {  //kmpo
 public:
-    int strStr(string haystack, string needle) {
-        return  kmp(haystack,needle);
-    }
-    void next_str(string &s,vector<int> &next){
+    void next_str(string s,int *next,int l){
         int k=-1,j=0;
         next[0] =-1;
         next[1] =0;
-        while(j<s.length()){
+        while(j<l){
             if(k==-1 || s[k] == s[j]){
                 k++;
                 j++;
-                if(k==0){
-                    next[j] = k;
-                }else{
-                    next[j]=k+1;
-                }
+                next[j]=k;
             }else{
                 k=next[k];
             }
         }
     }
-    int kmp(string s,string ss){
-        int k=-1,j=-1,ll=ss.length(),l=s.length();
-        vector<int>  a(l);
-        next_str(s,a);
+    int strStr(string haystack, string needle) {
+        int k=-1,j=-1,ll=haystack.length(),l=needle.length();
+        int next[l+1];
+        next_str(needle,next,l);
         while(k<l && j<ll){
-            if(k==-1 || s[k] ==ss[j]){
+            if(k==-1 || needle[k] ==haystack[j]){
                 j++;k++;
             }else{
-                k=a[k];
-                if(k>0){
-                    j++;
-                }
+                k=next[k];
             }
         }
         if(k==l){
-            return j-l+1;
+            return j-l;
+
         }else{
             return -1;
         }
     }
 };
-
