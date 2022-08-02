@@ -761,3 +761,60 @@ public:
         }
     }
 };
+class Solution704 {
+public:
+    int search(vector<int>& nums, int target) {
+        int low=0,high=nums.size()-1,mid;
+        while(low<=high){
+           mid=(low+high)/2;
+           if(nums[mid]==target){
+               return mid;
+           }else if(nums[mid]>target){
+              high=mid-1;
+           }else{
+               low=mid+1;
+           }
+        }
+        return -1;
+    }
+};
+class Solution27 {
+public:
+int removeElement(vector<int>& nums, int val) {
+    for(auto i=nums.begin();i!=nums.end();){
+        if(*i==val){
+            nums.erase(i);
+        }else{
+            i++;
+        }
+    }
+    return nums.size();
+}
+};
+class Solution977 {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        for(auto i=nums.begin();i!=nums.end();i++){
+            *i=(*i)*(*i);
+        }
+        std::sort(nums.begin(),nums.end());
+        return nums;
+    }
+};
+class Solution209 {  //error
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int size=1;
+        while(nums<=size){
+            for(int i=0;i+size<nums.size();i++){
+                int sum=0;
+                for(int k=0;k<size;k++){
+                    sum+=nums[k+i];
+                }
+                if(sum>=target){
+                    return size;
+                }
+            }
+        }
+    }
+};
