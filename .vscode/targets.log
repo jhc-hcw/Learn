@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul 28 11:20:45 2022
+# Make data base, printed on Thu Aug  4 15:24:12 2022
 
 # Variables
 
@@ -16,6 +16,8 @@ make: *** No rule to make target 'all'.  Stop.
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -49,7 +51,7 @@ VSCODE_CODE_CACHE_PATH = /home/jhc/.config/Code/CachedData/3b889b090b5ad5793f524
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.F7QIQ1
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.84N9P1
 # default
 .LOADED := 
 # default
@@ -59,7 +61,7 @@ MAKEFLAGS = pqrR
 # makefile
 CURDIR := /home/jhc/桌面/Learn
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
@@ -83,13 +85,13 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 5736
+VSCODE_PID = 2498
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/jhc-virtual-machine:@/tmp/.ICE-unix/1224,unix/jhc-virtual-machine:/tmp/.ICE-unix/1224
+SESSION_MANAGER = local/jhc-TM1801:@/tmp/.ICE-unix/1693,unix/jhc-TM1801:/tmp/.ICE-unix/1693
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,7 +131,7 @@ LANGUAGE = zh_CN:zh
 # automatic
 ^F = $(notdir $^)
 # environment
-INVOCATION_ID = 6518a8b46fee4944a5d20c31ee92b05e
+INVOCATION_ID = 26f4fba8eed24521be9236bda0b82eb0
 # environment
 USERNAME = jhc
 # environment
@@ -157,7 +159,7 @@ GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 1250
+SYSTEMD_EXEC_PID = 1711
 # environment
 DISPLAY = :0
 # environment
@@ -167,15 +169,15 @@ GTK_MODULES = gail:atk-bridge
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1118
+MANAGERPID = 1133
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5736
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2498
 # environment
 _ = /usr/share/code/code
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
-JOURNAL_STREAM = 8:47428
+JOURNAL_STREAM = 8:33028
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -203,7 +205,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu
 # variable set hash-table stats:
-# Load=95/1024=9%, Rehash=0, Collisions=2/122=2%
+# Load=96/1024=9%, Rehash=0, Collisions=2/123=2%
 
 # Pattern-specific Variable Values
 
@@ -211,7 +213,7 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 2050, inode 9310021): 11 files, no impossibilities.
+# . (device 66306, inode 3277393): 11 files, no impossibilities.
 
 # 11 files, no impossibilities in 1 directories.
 
@@ -269,6 +271,6 @@ GNUmakefile:
 # strcache performance: lookups = 22 / hit rate = 13%
 # hash-table stats:
 # Load=19/8192=0%, Rehash=0, Collisions=0/22=0%
-# Finished Make data base on Thu Jul 28 11:20:45 2022
+# Finished Make data base on Thu Aug  4 15:24:12 2022
 
  

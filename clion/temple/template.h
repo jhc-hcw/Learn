@@ -801,20 +801,35 @@ public:
         return nums;
     }
 };
-class Solution209 {  //error
+//class Solution209 {  //overtime
+//public:
+//    int minSubArrayLen(int target, vector<int>& nums) {
+//        int head=0,rear=0;
+//        int w=nums.size();
+//        int sum=nums[0];
+//        while(true){
+//           if(sum<target){
+//               rear++;
+//               sum+=nums[rear];
+//           }
+//        }
+//        return 0;
+//    }
+//};
+class Solution209 {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
-        int size=1;
-        while(nums<=size){
-            for(int i=0;i+size<nums.size();i++){
-                int sum=0;
-                for(int k=0;k<size;k++){
-                    sum+=nums[k+i];
-                }
-                if(sum>=target){
-                    return size;
-                }
+        int w=0,sum=0;
+        int res=INT32_MAX;
+        int head=0;
+        for(int rear=0;rear<nums.size();rear++){
+            sum+=nums[rear];
+            while(sum>=target){
+                w=rear-head+1;
+                res=res<w? res : w;
+                sum-=nums[head++];
             }
         }
+        return res ==INT32_MAX ? 0:res;
     }
 };
