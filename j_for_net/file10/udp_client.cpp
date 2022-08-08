@@ -1,3 +1,4 @@
+#include <arpa/inet.h>
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<netinet/in.h>
@@ -23,7 +24,7 @@ int main(int argc,char *argv[]){
 	sockaddr_in addr_server={0};
 	s=socket(AF_INET,SOCK_DGRAM,0);
 	addr_server.sin_family = AF_INET;
-    addr_server.sin_addr.s_addr = htonl(INADDR_ANY);
+    addr_server.sin_addr.s_addr = inet_addr("127.0.0.1");
     addr_server.sin_port = htons(PORT_SERVER);
 
     udpcliet_echo(s,(sockaddr*)&addr_server);

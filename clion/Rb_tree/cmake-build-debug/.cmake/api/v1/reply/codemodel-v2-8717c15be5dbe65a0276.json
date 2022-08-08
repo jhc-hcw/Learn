@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/mnt/SSD/Learning/clion/Rb_tree/cmake-build-debug",
-		"source" : "/mnt/SSD/Learning/clion/Rb_tree"
+		"build" : "/home/jhc/\u684c\u9762/Learn/clion/Rb_tree/cmake-build-debug",
+		"source" : "/home/jhc/\u684c\u9762/Learn/clion/Rb_tree"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 3
+		"minor" : 4
 	}
 }
