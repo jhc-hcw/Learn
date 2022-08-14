@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 
-qsort(int *data,int len,int s=0){
-	suto par=[data](int low,int high)->int {
+void qsort(int *data,int len,int s=0){
+	auto par=[data](int low,int high)->int {
 		int res=data[low];
 		while(low<high){
 			while(data[high]>res){
@@ -17,7 +17,7 @@ qsort(int *data,int len,int s=0){
 			}
 			if(low<high){
 				data[high]=data[low];
-				hight--;
+				high--;
 			}
 		}
 		data[low]=res;
