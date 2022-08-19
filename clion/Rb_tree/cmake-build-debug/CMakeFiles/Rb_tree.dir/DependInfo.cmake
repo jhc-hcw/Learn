@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/jhc/桌面/Learn/clion/Rb_tree/main.cpp" "CMakeFiles/Rb_tree.dir/main.cpp.o" "gcc" "CMakeFiles/Rb_tree.dir/main.cpp.o.d"
+  "C:/Users/jhc/Desktop/github/Learn/clion/Rb_tree/main.cpp" "CMakeFiles/Rb_tree.dir/main.cpp.obj" "gcc" "CMakeFiles/Rb_tree.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links.

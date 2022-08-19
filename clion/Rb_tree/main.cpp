@@ -338,8 +338,8 @@ void rb_tree<T>::insert_blance(rb_tree_ptr<T> p) {
         }
     }else{
         if(bff==root){
-           root->lchild->tree_color=rb_tree_color::black;
-           root->rchild->tree_color=rb_tree_color::black;
+            root->lchild->tree_color=rb_tree_color::black;
+            root->rchild->tree_color=rb_tree_color::black;
         }else{
 //            cout<<root<<"   |   "<<bff<<endl;
 //            cout<<root->data<<"  "<<bff->data<<endl;
@@ -674,22 +674,51 @@ void rb_tree<T>::erase_node(rb_tree_ptr<T> p){
         p->data=std::move(sub->data);
     delete_dir(sub);
 } ;
+<<<<<<< HEAD
 const int countj=5000000;
+=======
+<<<<<<< HEAD
+const int countj=50000000;
+=======
+>>>>>>> dda4debf1561eed1d3ad2771a8eac5be99ea879a
+>>>>>>> 013d9fb2721b96f7d5f4b5c2b149a2f947470f04
 #include<random>
 int main(){
     rb_tree<int> tr;
     random_device  seed;
     ranlux48 engine(seed());
+<<<<<<< HEAD
     uniform_int_distribution<> distru(0,INT32_MAX);
     int *array=new int[countj];
     int arrays[10]={15,28,21,24,44,92,55,84,8,9};
     for(int i=0;i<countj;i++){
+=======
+<<<<<<< HEAD
+    uniform_int_distribution<> distru(0,INT32_MAX);
+    int *array=new int[countj];
+    int arrays[10]={15,28,21,24,44,92,55,84,8,9};
+    for(int i=0;i<countj;i++){
+=======
+    uniform_int_distribution<> distru(0,10000);
+    int array[500];
+    int arrays[10]={15,28,21,24,44,92,55,84,8,9};
+    for(int i=0;i<500;i++){
+>>>>>>> dda4debf1561eed1d3ad2771a8eac5be99ea879a
+>>>>>>> 013d9fb2721b96f7d5f4b5c2b149a2f947470f04
         int temp=distru(engine);
         array[i]=temp;
         //cout<<temp<<",";
         tr.emplace_node(array[i]);
     }
+<<<<<<< HEAD
     for(int i=0;i<countj;i++){
+=======
+<<<<<<< HEAD
+    for(int i=0;i<countj;i++){
+=======
+    for(int i=0;i<500;i++){
+>>>>>>> dda4debf1561eed1d3ad2771a8eac5be99ea879a
+>>>>>>> 013d9fb2721b96f7d5f4b5c2b149a2f947470f04
         tr.erase_data(array[i]);
     }
 //    tr.erase_data(arrays[0]);
