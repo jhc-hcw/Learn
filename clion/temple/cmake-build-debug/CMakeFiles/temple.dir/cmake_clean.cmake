@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/temple.dir/main.cpp.o"
-  "CMakeFiles/temple.dir/main.cpp.o.d"
-  "temple"
+  "CMakeFiles/temple.dir/main.cpp.obj"
+  "CMakeFiles/temple.dir/main.cpp.obj.d"
+  "libtemple.dll.a"
+  "temple.exe"
+  "temple.exe.manifest"
   "temple.pdb"
 )
 

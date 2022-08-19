@@ -1,1 +1,3 @@
-/usr/bin/c++ -g CMakeFiles/Rb_tree.dir/main.cpp.o -o Rb_tree 
+"C:\Program Files\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Rb_tree.dir/objects.a
+C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\ar.exe qc CMakeFiles\Rb_tree.dir/objects.a @CMakeFiles\Rb_tree.dir\objects1.rsp
+C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE -g -Wl,--whole-archive CMakeFiles\Rb_tree.dir/objects.a -Wl,--no-whole-archive -o Rb_tree.exe -Wl,--out-implib,libRb_tree.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Rb_tree.dir\linklibs.rsp

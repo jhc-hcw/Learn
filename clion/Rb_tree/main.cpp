@@ -80,13 +80,13 @@ template<typename T>
 bool rb_tree_t<T>::type_is(rb_tree_type t)const {
     switch(t){
         case rb_tree_type::red :
-            if(tree_color==rb_tree_color::red){
+            if(this->tree_color==rb_tree_color::red){
                 return true;
             }else{
                 break;
             }
         case rb_tree_type::black :
-            if(tree_color==rb_tree_color::black){
+            if(this->tree_color==rb_tree_color::black){
                 return true;
             }else{
                 break;
@@ -190,20 +190,23 @@ public:
     rb_tree():root(nullptr){};
     rb_tree(const rb_tree &)=delete;
     rb_tree(const rb_tree &&)=delete;
-    //寻找目标值
-    pair<rb_tree_ptr<T>,rb_tree_ptr<T>> find_node(T &&target)const;
-    //找到目标值的父节点
-   // rb_tree_ptr<T> find_father(T &&target)const;
     //通过节点插入其中
     bool insert_node(rb_tree_ptr<T> p);
     //给定值直接置入树中，建议使用这个方法。
     bool emplace_node(T data);
-    //删除值对应的节点
-    //bool erase_node(T &&target) ;
+    //删除值对值的节点
+    bool erase_data(T target) ;
+    //删除对应节点
+    void erase_node(rb_tree_ptr<T> p) ;
     ~rb_tree(){
         delete root;
     }
     int layer_order()const;
+private:
+    void delete_dir(rb_tree_ptr<T> p);
+    void change_struct(rb_tree_ptr<T> p);
+    //寻找目标值
+    pair<rb_tree_ptr<T>,rb_tree_ptr<T>> find_node(T &&target)const;
 };
 template<typename T>
 pair<rb_tree_ptr<T>,rb_tree_ptr<T>> rb_tree<T>::find_node(T &&target) const {
@@ -335,8 +338,8 @@ void rb_tree<T>::insert_blance(rb_tree_ptr<T> p) {
         }
     }else{
         if(bff==root){
-           root->lchild->tree_color=rb_tree_color::black;
-           root->rchild->tree_color=rb_tree_color::black;
+            root->lchild->tree_color=rb_tree_color::black;
+            root->rchild->tree_color=rb_tree_color::black;
         }else{
 //            cout<<root<<"   |   "<<bff<<endl;
 //            cout<<root->data<<"  "<<bff->data<<endl;
@@ -357,6 +360,10 @@ bool rb_tree<T>::emplace_node(T data){
 
 template<typename T>
 int rb_tree<T>::layer_order()const{
+    if(!root){
+        cout<<"空树"<<endl;
+        return 0;
+    }
     jhc_util::stack<rb_tree_ptr<T>> *s1,*s2;
     s1=new jhc_util::stack<rb_tree_ptr<T>>;
     s2=new jhc_util::stack<rb_tree_ptr<T>>;
@@ -396,6 +403,7 @@ int rb_tree<T>::layer_order()const{
     }
     return count;
 }
+//突发奇想的方法，完全错误！！！！！！！！！！！！！
 template <typename T>
 void changed_color(rb_tree_ptr<T> p,rb_tree_color color){
     if(p &&p->tree_color==color ){
@@ -405,18 +413,297 @@ void changed_color(rb_tree_ptr<T> p,rb_tree_color color){
         changed_color(p->rchild,t);
     }
 }
+//改变待删节点上层树的结构，最终把节点变红删除。
+template <typename T>
+void rb_tree<T>::change_struct(rb_tree_ptr<T> p){
+    auto father=p->father,t=p;
+    while(p->tree_color==rb_tree_color::black){
+        if(father && father->type_is(rb_tree_type::black_dou)){
+            if(root==father){//考虑root节点另一边改变
+                if(father->lchild==t){
+                    auto fr=father->rchild;
+                    if(fr->type_is(rb_tree_type::black_dou)){//二节点直接变色,因为是根节点，改变两边颜色不印象平衡。
+                        father->lchild->tree_color=rb_tree_color ::red;
+                        father->rchild->tree_color=rb_tree_color ::red;
+                        father=p->father;
+                        t=p;
+                        continue;
+                    }else if(fr->type_is(rb_tree_type::black_tri_)){ //根结点另一边是三结点的情况。
+                        if(fr->lchild&&fr->lchild->tree_color==rb_tree_color::red){
+                            fr->tree_color=rb_tree_color::red;
+                            fr->lchild->tree_color=rb_tree_color::black;
+                            fr=r_rotate(fr);
+                            root=l_rotate(father);
+                            root->rchild->tree_color=rb_tree_color ::black;
+                            root->lchild->lchild->tree_color=rb_tree_color ::red;
+                            father=p->father;
+                            t=p;
+                            continue;
+                        }else{
+                            root=l_rotate(father);
+                            root->rchild->tree_color=rb_tree_color ::black;
+                            root->lchild->lchild->tree_color=rb_tree_color ::red;
+                            father=p->father;
+                            t=p;
+                            continue;
+                        }
+                    }else if(fr->type_is(rb_tree_type::black_four)){ //另一边四结点，直接变色。 ！！！！！那非根不也行 ,不对！！！，这样就不平衡了，只有根节点有权力这么做。
+                        fr->tree_color=rb_tree_color::red;
+                        if(fr->lchild){
+                            fr->lchild->tree_color=rb_tree_color ::black;
+                            fr->rchild->tree_color=rb_tree_color ::black;
+                        }
+                        father=p->father;
+                        t=p;
+                        continue;
+                    }
+                }else{
+                    auto fl=father->lchild;
+                    if(fl->type_is(rb_tree_type::black_dou)){
+                        father->lchild->tree_color=rb_tree_color ::red;
+                        father->rchild->tree_color=rb_tree_color ::red;
+                        father=p->father;
+                        t=p;
+                        continue;
+                    }else if(fl->type_is(rb_tree_type::black_tri_)){
+                        if(fl->rchild && fl->rchild->tree_color==rb_tree_color::red){
+                            fl->tree_color=rb_tree_color ::red;
+                            fl->rchild->tree_color=rb_tree_color ::black;
+                            fl=l_rotate(fl);
+                            root=r_rotate(father);
+                            root->lchild->tree_color=rb_tree_color ::black;
+                            root->rchild->rchild->tree_color=rb_tree_color ::red;
+                            father=p->father;
+                            t=p;
+                            continue;
+                        }else{
+                            root=r_rotate(father);
+                            root->lchild->tree_color=rb_tree_color ::black;
+                            root->rchild->rchild->tree_color=rb_tree_color ::red;
+                            father=p->father;
+                            t=p;
+                            continue;
+                        }
+                    }else if(fl->type_is(rb_tree_type::black_four)){ //另一边四结点，直接变色。 ！！！！！那非根不也行 ,不对！！！，这样就不平衡了，只有根节点有权力这么做。
+                        fl->tree_color=rb_tree_color::red;
+                        if(fl->lchild){
+                            fl->lchild->tree_color=rb_tree_color ::black;
+                            fl->rchild->tree_color=rb_tree_color ::black;
+                        }
+                        father=p->father;
+                        t=p;
+                        continue;
+                    }
+                }
+            }
+            t=father;
+            father=father->father;
+            continue;
+        }else if(father && father->type_is(rb_tree_type::red)){  //红色，考虑红色另一边，做决定
+            if(father->lchild==t){
+                auto fr=father->rchild;
+                if(fr->type_is(rb_tree_type::black_dou)){  //另一边二节点，变色，再判断
+                    father->tree_color=rb_tree_color ::black;
+                    father->lchild->tree_color=rb_tree_color ::red;
+                    father->rchild->tree_color=rb_tree_color ::red;
+                    father=p->father;
+                    t=p;
+                    continue;
+                }else if(fr->type_is(rb_tree_type::black_tri_rred)){   //另一边三结点可直接旋转
+                    father->rchild->tree_color=rb_tree_color::red;
+                    father->lchild->tree_color=rb_tree_color::red;
+                    father->tree_color=rb_tree_color::black;
+                    father->rchild->rchild->tree_color=rb_tree_color::black;
+                    l_rotate(father);
+                    father=p->father;
+                    t=p;
+                    continue;
+                }else if(fr->type_is(rb_tree_type::black_tri_lred)){  //另一边三结点不可直接旋转
+                    fr->tree_color=rb_tree_color ::red;
+                    fr->lchild->tree_color=rb_tree_color ::black;
+                    r_rotate(fr);
+                    father->rchild->tree_color=rb_tree_color::red;
+                    father->lchild->tree_color=rb_tree_color::red;
+                    father->tree_color=rb_tree_color::black;
+                    father->rchild->rchild->tree_color=rb_tree_color::black;
+                    l_rotate(father);
+                    father=p->father;
+                    t=p;
+                    continue;
+                }else{ //四节点，变色，变成二节点，再考虑
+                    father->tree_color=rb_tree_color::black;
+                    father->lchild->tree_color=rb_tree_color::red;
+                    father->rchild->tree_color=rb_tree_color::red;
+                    father->rchild->rchild->tree_color=rb_tree_color::black;
+                    l_rotate(father);
+                    father=p->father;
+                    t=p;
+                    continue;
+                }
+            }else{
+                auto fl=father->lchild;
+                if(fl->type_is(rb_tree_type::black_dou)){
+                    father->tree_color=rb_tree_color ::black;
+                    father->lchild->tree_color=rb_tree_color ::red;
+                    father->rchild->tree_color=rb_tree_color ::red;
+                    father=p->father;
+                    t=p;
+                    continue;
+                }else if(fl->type_is(rb_tree_type::black_tri_lred)){
+                    father->lchild->tree_color=rb_tree_color::red;
+                    father->rchild->tree_color=rb_tree_color::red;
+                    father->tree_color=rb_tree_color::black;
+                    father->lchild->lchild->tree_color=rb_tree_color::black;
+                    r_rotate(father);
+                    father=p->father;
+                    t=p;
+                    continue;
+                }else if(fl->type_is(rb_tree_type::black_tri_rred)){
+                    fl->tree_color=rb_tree_color::red;
+                    fl->rchild->tree_color=rb_tree_color ::black;
+                    l_rotate(fl);
+                    father->lchild->tree_color=rb_tree_color::red;
+                    father->rchild->tree_color=rb_tree_color::red;
+                    father->tree_color=rb_tree_color::black;
+                    father->lchild->lchild->tree_color=rb_tree_color::black;
+                    r_rotate(father);
+                    father=p->father;
+                    t=p;
+                }else{
+                    father->tree_color=rb_tree_color::black;
+                    father->rchild->tree_color=rb_tree_color::red;
+                    father->lchild->tree_color=rb_tree_color::red;
+                    father->lchild->lchild->tree_color=rb_tree_color::black;
+                    r_rotate(father);
+                    father=p->father;
+                    t=p;
+                    continue;
+                }
+            }
+
+        }else if(father && father->type_is(rb_tree_type::black_tri_)){   //黑色，但黑色是三节点，旋转即可
+            if(father->lchild==t){
+                father->tree_color=rb_tree_color ::red;
+                father->rchild->tree_color=rb_tree_color ::black;
+                //father->rchild->rchild->tree_color=rb_tree_color::red;
+                if(root==father)
+                    root=l_rotate(father);
+                else
+                    l_rotate(father);
+                father=p->father;
+                t=p;
+                continue;
+            }else {
+                father->tree_color=rb_tree_color ::red;
+                father->lchild->tree_color=rb_tree_color ::black;
+                //father->lchild->lchild->tree_color=rb_tree_color::red;
+                if(root==father)
+                    root=r_rotate(father);
+                else
+                    r_rotate(father);
+                father=p->father;
+                t=p;
+                continue;
+            }
+        }
+    }
+}
+//删除值对值的节点
+template<typename T>
+bool rb_tree<T>::erase_data(T target) {
+    auto tar=find_node(std::forward<T>(target));
+    if(tar.second){
+        erase_node(tar.second);
+        return true;
+    }
+    return false;
+};
+template<typename T>
+void rb_tree<T>::delete_dir(rb_tree_ptr<T> p){
+    if(p->tree_color==rb_tree_color::red){  //红色结点，直接删除
+        if(p->type_is(rb_tree_type::father_l)){
+            p->father->lchild= nullptr;
+        }else{
+            p->father->rchild=nullptr;
+        }
+        p->clear_t();
+        delete p;
+        return ;
+    }else{
+        if(p->father){//不是头节点
+            if(p->lchild){
+                p->data=move(p->lchild->data);
+                p->lchild->clear_t();
+                p->lchild= nullptr;
+                delete p->lchild;
+                return;
+            }
+            change_struct(p);
+            delete_dir(p);
+        }else{//是头节点
+            if(p->rchild){
+                root=p->rchild;
+                root->father=nullptr;
+                root->tree_color=rb_tree_color ::black;
+                p->clear_t();
+                delete(p);
+                return ;
+            }else{
+                delete p;
+                root=nullptr;
+                cout<<"空树！"<<endl;
+                return ;
+            }
+        }
+    }
+}
+//删除对应节点
+template<typename T>
+void rb_tree<T>::erase_node(rb_tree_ptr<T> p){
+    auto sub=p;
+    if(sub->lchild)
+        sub=sub->lchild;
+    while(true){
+        if(sub->rchild){
+            sub=sub->rchild;
+        }else{
+            break;
+        }
+    }//找到替代节点。
+    if(p!=sub)
+        p->data=std::move(sub->data);
+    delete_dir(sub);
+} ;
+const int countj=50000000;
 #include<random>
 int main(){
     rb_tree<int> tr;
     random_device  seed;
     ranlux48 engine(seed());
-    uniform_int_distribution<> distru(0,100);
-    for(int i=0;i<10;i++){
+    uniform_int_distribution<> distru(0,INT32_MAX);
+    int *array=new int[countj];
+    int arrays[10]={15,28,21,24,44,92,55,84,8,9};
+    for(int i=0;i<countj;i++){
         int temp=distru(engine);
-        cout<<temp<<" ";
-        tr.emplace_node(temp);
+        array[i]=temp;
+        //cout<<temp<<",";
+        tr.emplace_node(array[i]);
     }
+    for(int i=0;i<countj;i++){
+        tr.erase_data(array[i]);
+    }
+//    tr.erase_data(arrays[0]);
+//    tr.erase_data(arrays[1]);
+//    tr.erase_data(arrays[2]);
+//    tr.erase_data(arrays[3]);
+//    tr.erase_data(arrays[4]);
+//    tr.erase_data(arrays[5]);
+//    tr.erase_data(arrays[6]);
+//    tr.erase_data(arrays[7]);
+//    tr.erase_data(arrays[8]);
+//    tr.erase_data(arrays[9]);
     cout<<endl;
     tr.layer_order();
+    delete[] array;
     return 9;
 }
