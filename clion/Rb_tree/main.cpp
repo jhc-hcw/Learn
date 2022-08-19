@@ -428,7 +428,7 @@ void rb_tree<T>::change_struct(rb_tree_ptr<T> p){
                         father=p->father;
                         t=p;
                         continue;
-                    }else if(fr->type_is(rb_tree_type::black_tri_)){ //根结点另一边是三结点的情况。
+                    }else if(fr->type_is(rb_tree_type::black_tri_)){ //根结点另一边是三结点的情况。   这个情况和下面的father是red，另一变是三节点比较类似，应该可以优化分支。
                         if(fr->lchild&&fr->lchild->tree_color==rb_tree_color::red){
                             fr->tree_color=rb_tree_color::red;
                             fr->lchild->tree_color=rb_tree_color::black;
@@ -674,21 +674,22 @@ void rb_tree<T>::erase_node(rb_tree_ptr<T> p){
         p->data=std::move(sub->data);
     delete_dir(sub);
 } ;
+const int countj=5000000;
 #include<random>
 int main(){
     rb_tree<int> tr;
     random_device  seed;
     ranlux48 engine(seed());
-    uniform_int_distribution<> distru(0,10000);
-    int array[500];
+    uniform_int_distribution<> distru(0,INT32_MAX);
+    int *array=new int[countj];
     int arrays[10]={15,28,21,24,44,92,55,84,8,9};
-    for(int i=0;i<500;i++){
+    for(int i=0;i<countj;i++){
         int temp=distru(engine);
         array[i]=temp;
         //cout<<temp<<",";
         tr.emplace_node(array[i]);
     }
-    for(int i=0;i<500;i++){
+    for(int i=0;i<countj;i++){
         tr.erase_data(array[i]);
     }
 //    tr.erase_data(arrays[0]);
@@ -703,5 +704,6 @@ int main(){
 //    tr.erase_data(arrays[9]);
     cout<<endl;
     tr.layer_order();
+    delete[] array;
     return 9;
 }

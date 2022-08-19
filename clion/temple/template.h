@@ -985,3 +985,32 @@ public:
        return head;
     }
 };
+class Solution739 {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {  //提交超快！！！！
+        const int l=temperatures.size();
+        vector<int> res(l);
+        int leng=l-1;
+        res[leng]=0;int offset;
+        leng--;
+        int value;
+        for(;leng>=0;leng--){
+            offset=leng+1;
+            value=1;
+            while(true){
+                if(temperatures[leng]<temperatures[offset]){
+                    res[leng]=value;
+                    break;
+                }else{
+                    if(res[offset]==0){
+                        res[leng]=0;
+                        break;
+                    }
+                    value+=res[offset];
+                    offset+=res[offset];
+                }
+            }
+        }
+        return res;
+    }
+};

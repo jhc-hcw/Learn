@@ -80,7 +80,11 @@ void quick_sort(vector<int> &v,int left,int right){
 }
 
 int main(){
-    string ss="mississippi";
-    string s="issip";
-    cout<<Solution28().strStr(ss,s);
+
+    vector<int> a={73,74,75,71,69,72,76,73};
+    auto res=Solution739().dailyTemperatures(a);
+    for(auto p:res){
+        cout<<p<<" ";
+    }
+    return 0;
 }
