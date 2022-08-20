@@ -82,5 +82,5 @@ void quick_sort(vector<int> &v,int left,int right){
 int main(){
     string ss="mississippi";
     string s="issip";
-    cout<<Solution28().strStr(ss,s);
+    cout<<Solution541().reverseStr(ss,2);
 }

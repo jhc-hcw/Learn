@@ -985,3 +985,119 @@ public:
        return head;
     }
 };
+
+class Solution206 {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(!head){
+            return head;
+        }
+        ListNode* ahead=head->next;
+        ListNode* h=head;
+        ListNode* t;
+        if(ahead)
+            ahead->next;
+        head->next=nullptr;
+        while(ahead){
+            t=ahead->next;
+            ahead->next=h;
+            h=ahead;
+            ahead=t;
+        }
+        return h;
+    }
+};
+class Solution19_f { //自己的改进版本；
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        const int len=n+1;
+        ListNode* que[len];
+        auto p=head;
+        int count=0;
+        while(p){
+            que[count%len]=p;
+            p=p->next;
+            count++;       //最终长度就为实际长度。
+        }
+        if((count)<=n){
+            if((count)==n){
+                return head->next;
+            }
+            return head;
+        }else{
+            p=que[(count-n)%len];
+            auto f=que[(count-n-1)%len];
+            f->next=p->next;
+        }
+        return head;
+    }
+};
+class Solution454 {
+public:
+    int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
+        unordered_map<int,int> map;
+        for(auto i:nums1)
+            for(auto j:nums2){
+                map[i+j]++;
+            }
+        int count=0;
+        for(auto i:nums3)
+            for(auto j:nums4){
+                if(map.find(0-(i+j))!=map.end()){
+                    count+=map[0-(i+j)];
+                }
+            }
+        return  count;
+    }
+};
+class Solution344 {
+public:
+    void reverseString(vector<char>& s) {
+        char t;
+        int len=s.size()-1;
+        int front=0;
+        while(front<len){
+            t=s[front];
+            s[front]=s[len];
+            s[len]=t;
+            len--;
+            front++;
+        }
+    }
+};
+class Solution541 {
+public:
+    string reverseStr(string s, int k) {
+        const int len=s.length();
+        int sum=0;
+        bool change=true;
+        while(true){
+            if(change){
+                if((sum+=k)<=len){
+                    for(int j=sum,k=sum+k-1;j<k;j++,k--){
+                        swap(s[j],s[k]);
+                    }
+                    change=false;
+                    if(sum==len){
+                        break;
+                    }
+                }else if(sum<k){
+                    for(int j=sum,k=len-1;j<k;j++,k--){
+                        swap(s[j],s[k]);
+                    }
+                    break;
+                }
+            }else{
+                if((sum+=k)<=len){
+                    change=true;
+                    if(sum==len){
+                        break;
+                    }
+                }else{
+                    break;
+                }
+            }
+        }
+        return s;
+    }
+};
