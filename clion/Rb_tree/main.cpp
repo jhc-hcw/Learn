@@ -428,7 +428,7 @@ void rb_tree<T>::change_struct(rb_tree_ptr<T> p){
                         father=p->father;
                         t=p;
                         continue;
-                    }else if(fr->type_is(rb_tree_type::black_tri_)){ //根结点另一边是三结点的情况。
+                    }else if(fr->type_is(rb_tree_type::black_tri_)){ //根结点另一边是三结点的情况。   这个情况和下面的father是red，另一变是三节点比较类似，应该可以优化分支。
                         if(fr->lchild&&fr->lchild->tree_color==rb_tree_color::red){
                             fr->tree_color=rb_tree_color::red;
                             fr->lchild->tree_color=rb_tree_color::black;
@@ -675,9 +675,13 @@ void rb_tree<T>::erase_node(rb_tree_ptr<T> p){
     delete_dir(sub);
 } ;
 <<<<<<< HEAD
+const int countj=5000000;
+=======
+<<<<<<< HEAD
 const int countj=50000000;
 =======
 >>>>>>> dda4debf1561eed1d3ad2771a8eac5be99ea879a
+>>>>>>> 013d9fb2721b96f7d5f4b5c2b149a2f947470f04
 #include<random>
 int main(){
     rb_tree<int> tr;
@@ -689,11 +693,18 @@ int main(){
     int arrays[10]={15,28,21,24,44,92,55,84,8,9};
     for(int i=0;i<countj;i++){
 =======
+<<<<<<< HEAD
+    uniform_int_distribution<> distru(0,INT32_MAX);
+    int *array=new int[countj];
+    int arrays[10]={15,28,21,24,44,92,55,84,8,9};
+    for(int i=0;i<countj;i++){
+=======
     uniform_int_distribution<> distru(0,10000);
     int array[500];
     int arrays[10]={15,28,21,24,44,92,55,84,8,9};
     for(int i=0;i<500;i++){
 >>>>>>> dda4debf1561eed1d3ad2771a8eac5be99ea879a
+>>>>>>> 013d9fb2721b96f7d5f4b5c2b149a2f947470f04
         int temp=distru(engine);
         array[i]=temp;
         //cout<<temp<<",";
@@ -702,8 +713,12 @@ int main(){
 <<<<<<< HEAD
     for(int i=0;i<countj;i++){
 =======
+<<<<<<< HEAD
+    for(int i=0;i<countj;i++){
+=======
     for(int i=0;i<500;i++){
 >>>>>>> dda4debf1561eed1d3ad2771a8eac5be99ea879a
+>>>>>>> 013d9fb2721b96f7d5f4b5c2b149a2f947470f04
         tr.erase_data(array[i]);
     }
 //    tr.erase_data(arrays[0]);
