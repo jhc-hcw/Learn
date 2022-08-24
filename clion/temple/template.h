@@ -1069,38 +1069,39 @@ public:
 class Solution541 {
 public:
     string reverseStr(string s, int k) {
-        const int len=s.length();
-        int sum=0;
-        bool change=true;
-        while(true){
-            if(change){
-                if((sum+=k)<=len){
-                    for(int j=sum,k=sum+k-1;j<k;j++,k--){
-                        swap(s[j],s[k]);
+        const int len = s.length();
+        int sum = 0;
+        bool change = true;
+        while (true) {
+            if (change) {
+                if (sum + k <= len) {
+                    for (int j = sum, t = sum + k - 1; j < t; j++, t--) {
+                        swap(s[j], s[t]);
                     }
-                    change=false;
-                    if(sum==len){
+                    sum += k;
+                    change = false;
+                    if (sum == len) {
                         break;
                     }
-                }else if(sum<k){
-                    for(int j=sum,k=len-1;j<k;j++,k--){
-                        swap(s[j],s[k]);
+                } else if (sum < len) {
+                    for (int j = sum, t = len - 1; j < t; j++, t--) {
+                        swap(s[j], s[t]);
                     }
                     break;
                 }
-            }else{
-                if((sum+=k)<=len){
-                    change=true;
-                    if(sum==len){
-                        break;
-                    }
-                }else{
+            } else {
+                if (sum + k < len) {
+                    change = true;
+                    sum += k;
+                } else {
                     break;
                 }
             }
         }
+        //s[0]='i';
         return s;
-=======
+    }
+}
 class Solution739 {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {  //提交超快！！！！
@@ -1128,6 +1129,5 @@ public:
             }
         }
         return res;
->>>>>>> 2b32eb3171597edbf0cc8ae4873b0a66f890a5ca
     }
 };
