@@ -3,8 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/service2.dir/proce2.cpp.o.d"
   "CMakeFiles/service2.dir/service.cpp.o"
   "CMakeFiles/service2.dir/service.cpp.o.d"
-  "bin/service2"
-  "bin/service2.pdb"
+  "service2"
+  "service2.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

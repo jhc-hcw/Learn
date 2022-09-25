@@ -555,6 +555,28 @@ public:
         return res;
     }
 };
+// 239
+vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+    long sum=0;
+    for(int i=0;i<k;i++){
+        sum+=nums[i];
+    }
+    int h=0,r=k-1;
+    int res;
+    long max=sum;
+    while(r<nums.size()){
+        if((sum+=(-nums[h]+nums[++r]))>max){
+            max=sum;
+            res=h;
+        }
+        h++;
+    }
+    vector<int> result;
+    for(int i=0;i<k;i++){
+        result.push_back(nums[i+res]);
+    }
+    return result;
+}
 #include<unordered_set>
 class Solution349 {
 public:
@@ -689,6 +711,37 @@ public:
         return result;
     }
 };
+
+//151. 颠倒字符串中的单词。
+string reverseWords(string s){ //能100吧，就是有点丑。
+    s.push_back(' ');
+    int r=s.length()-1;
+    int h=r-1;
+    string res;
+    while(h>=0){
+        if(s[h]!=' '){
+            --h;
+        }else{
+            for(int i=h+1;i<r;i++){
+                res.push_back(s[i]);
+            }
+            if(h+1!=r)
+                res.push_back(' ');
+            r=h;
+            --h;
+        }
+    }
+    for(int i=h+1;i<r;i++){
+        res.push_back(s[i]);
+    }
+    if(*res.rend()==' '){
+        res.resize(res.length()-1);
+    }
+    return res;
+}
+
+
+
 
 /**
  * Definition for singly-linked list.
@@ -985,7 +1038,6 @@ public:
        return head;
     }
 };
-<<<<<<< HEAD
 
 class Solution206 {
 public:
@@ -1033,24 +1085,24 @@ public:
         return head;
     }
 };
-class Solution454 {
-public:
-    int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
-        unordered_map<int,int> map;
-        for(auto i:nums1)
-            for(auto j:nums2){
-                map[i+j]++;
-            }
-        int count=0;
-        for(auto i:nums3)
-            for(auto j:nums4){
-                if(map.find(0-(i+j))!=map.end()){
-                    count+=map[0-(i+j)];
-                }
-            }
-        return  count;
-    }
-};
+//class Solution454 {
+//public:
+//    int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
+//        unordered_map<int,int> map;
+//        for(auto i:nums1)
+//            for(auto j:nums2){
+//                map[i+j]++;
+//            }
+//        int count=0;
+//        for(auto i:nums3)
+//            for(auto j:nums4){
+//                if(map.find(0-(i+j))!=map.end()){
+//                    count+=map[0-(i+j)];
+//                }
+//            }
+//        return  count;
+//    }
+//};
 class Solution344 {
 public:
     void reverseString(vector<char>& s) {
@@ -1100,7 +1152,8 @@ public:
             }
         }
         return s;
-=======
+    }
+};
 class Solution739 {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {  //提交超快！！！！
@@ -1128,6 +1181,383 @@ public:
             }
         }
         return res;
->>>>>>> 2b32eb3171597edbf0cc8ae4873b0a66f890a5ca
     }
 };
+class Solution58 {  //一百速度
+public:
+    string reverseLeftWords(string s, int n) {
+        const int len=s.length();
+        int move=n%len;
+        char buf[move];
+        for(int i=0;i<move;i++){
+            buf[i]=s[i];
+        }
+        for(int i=n;i<len;i++){
+            s[i-n]=s[i];
+        }
+        for(int i=len-n,j=0;i<len;i++,j++){
+            s[i]=buf[j];
+        }
+        return s;
+    }
+};
+//459. 重复的子字符串
+bool repeatedSubstringPattern(string s) {
+    const int len=s.length();
+    if(len==1){
+        return false;
+    }else{
+        if(len==0){
+            return false;
+        }else {
+            int mid;
+            if(len%2==0)
+                mid=len/2;
+            else
+                mid=len/2-1;
+            for (int i = 1; i <= mid; i++) {
+                int j = i;
+                for (; j < len; j++) {
+                    if (s[j] != s[j -i]) {
+                        break;
+                    }
+                }
+                if (j == len) {
+                    return true;
+                }
+            }
+            if(len==3&& s[0]==s[1]&&s[1]==s[2]){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+//27. 移除元素
+int removeElement(vector<int>& nums, int val) {  //超过100%
+    int len=nums.size();
+    int i=0;
+    while(i<len){
+        if(nums[i]==val){
+            nums[i]=nums[len-1];
+            //nums.erase(--nums.end());
+            --len;
+            continue;
+        }else{
+            i++;
+        }
+    }
+    nums.resize(len);
+    return len;
+}
+// 977 有序数组的平方。
+vector<int> sortedSquares(vector<int>& nums) {
+    const int len=nums.size();
+    vector<int> res(len);
+    int i,j;
+    int q=0;
+    for( i=0;i<len;i++){
+        if(nums[i]<=0){
+            ++q;
+        }
+    }
+    vector<int> q1(q);
+    vector<int> q2(len-q);
+    for(i=q-1,j=0;i>=0;--i,++j){
+        q1[j]=nums[i]*nums[i];
+    }
+    for(i=q,j=0;i<len;++i,++j){
+        q2[j]=nums[i]*nums[i];
+    }
+    q=0;
+    for(i=0,j=0;i<q1.size()&&j<q2.size();){
+        if(q1[i]>q2[j]){
+            nums[q++]=q2[j++];
+        }else{
+            nums[q++]=q1[i++];
+        }
+    }
+    for(;i<q1.size(); ) nums[q++]=q1[i++];
+    for(;j<q2.size();) nums[q++]=q2[j++];
+    return nums;
+}
+
+//指 Offer 05. 替换空;
+string replaceSpace(string s) {
+    //return s.replace(" ","%20");
+    string res;
+    for(auto i=s.begin();i!=s.end();++i){
+        if(*i==' '){
+            res.append("%20");
+        }else{
+            res.push_back(*i);
+        }
+    }
+    return res;
+}
+//232 用栈实现队列。
+class MyQueue {
+    stack<int> s1;
+    stack<int> s2;
+public:
+    MyQueue() {
+
+    }
+
+    void push(int x) {
+        s1.push(x);
+    }
+
+    int pop() {
+        if(s1.empty()&&s2.empty()){
+            return NULL;
+        }else{
+            if(s2.empty()){
+                while(!s1.empty()){
+                    s2.push(s1.top());
+                    s1.pop();
+                }
+            }
+            int res=s2.top();
+            s2.pop();
+            return res;
+        }
+    }
+
+    int peek() {
+        if(s1.empty()&&s2.empty()){
+            return NULL;
+        }else{
+            if(s2.empty()){
+                while(!s1.empty()){
+                    s2.push(s1.top());
+                    s1.pop();
+                }
+            }
+            int res=s2.top();
+            return res;
+        }
+    }
+    bool empty() {
+        if(s1.empty() && s2.empty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+};
+//用队列实现栈  225
+class MyStack {
+    queue<int> q1;
+    queue<int> q2;
+public:
+    MyStack() {
+
+    }
+
+    void push(int x) {
+        q1.push(x);
+    }
+
+    int pop() {
+        int res;
+        int size=q1.size();
+        --size;
+        while(size--){
+            q2.push(q1.front());
+            q1.pop();
+        }
+        res=q1.front();
+        q1.pop();
+        q1=q2;
+        while(!q2.empty())
+            q2.pop();
+        return res;
+    }
+
+    int top() {
+        return q1.back();
+    }
+
+    bool empty() {
+        return q1.empty();
+    }
+};
+
+//347 前K个高频元素。
+vector<int> topKFrequent(vector<int>& nums, int k) {
+    map<int,int> m;
+    for(auto i:nums){
+        ++m[i];
+    }
+    vector<pair<int,int>> res;
+    for_each(m.begin(),m.end(),[&](map<int,int>::const_iterator::value_type &it){
+        res.push_back(make_pair(it.second,it.first));
+    });
+    vector<int> r;
+    sort(res.begin(),res.end(),[&](pair<int,int> &p1,pair<int,int> &p2){
+        if(p1.first>=p2.first){
+            return true;
+        }else{
+            return false;
+        }
+    });
+    for(int i=0;i<k;++i){
+        r.push_back(res[i].second);
+    }
+    return r;
+}
+
+struct TreeNode {
+      int val;
+      TreeNode *left;
+      TreeNode *right;
+      TreeNode() : val(0), left(nullptr), right(nullptr) {}
+      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+//144 前序遍历
+vector<int> preorderTraversal(TreeNode* root) {
+    stack<TreeNode *> s;
+    // if(root){
+    //     return {};
+    // }
+    s.push(root);
+    auto p=root;
+    vector<int> res;
+    while(!s.empty()){
+        p=s.top();
+        if(p){
+            res.push_back(p->val);
+            s.pop();
+            s.push(p->right);
+            s.push(p->left);
+        }else{
+            s.pop();
+        }
+    }
+}
+
+vector<int> inorderTraversal(TreeNode* root) {
+    stack<TreeNode *> s;
+    //s.push(root);
+    auto p=root;
+    vector<int> res;
+    while(!s.empty() || p){
+        if(p){
+            s.push(p);
+            p=p->left;
+        }else{
+            p=s.top();
+            s.pop();
+            res.push_back(p->val);
+            p=p->right;
+        }
+    }
+    return res;
+}
+
+vector<int> postorderTraversal(TreeNode* root) {
+    if(!root){
+        return {};
+    }
+    stack<TreeNode *> s;
+    auto p=root;
+    auto back=root;
+    vector<int> res;
+    s.push(p);
+    while(!s.empty()){
+        p=s.top();
+        if(p->left && p->left != back && p->right != back){
+            s.push(p->left);
+        }else if(p->right && p->right !=back){
+            s.push(p->right);
+        }else{
+            res.push_back(p->val);
+            s.pop();
+            back=p;
+        }
+    }
+    return res;
+}
+
+vector<vector<int>> levelOrder(TreeNode* root) {
+    queue<TreeNode *>  *q1=new queue<TreeNode *>();
+    auto q2=new queue<TreeNode *>();
+    if(!root){
+        return {};
+    }
+
+    q1->push(root);
+    auto p=root;
+    vector<vector<int>> res;
+    while(!q1->empty()){
+        vector<int> temp;
+        while(!q1->empty()){
+            auto t=q1->front();
+            temp.push_back(t->val);
+            if(t->left){
+                q2->push(t->left);
+            }
+            if(t->right){
+                q2->push(t->right);
+            }
+            q1->pop();
+        }
+        res.push_back(temp);
+        //using std::swap;
+        swap(q1,q2);
+    }
+    return res;
+}
+vector<string> binaryTreePaths(TreeNode* root) {  //257题目
+    vector<string> res;
+    vector<TreeNode*> sk;
+    set<TreeNode *> setl,setr;
+    //setl.insert(root);
+    sk.push_back(root);
+    while(!sk.empty()){
+        auto p=sk.back();
+        if(setr.find(p)==setr.end()){
+            if(setl.find(p)==setl.end()){
+                if(!p->left && !p->right){
+                    string s;
+                    auto e=sk.end()-1;
+                    for(auto i=sk.begin();i!=e;++i){
+                        s.append(to_string((*i)->val));
+                        s.append("->");
+                    }
+                    s.append(to_string(p->val));
+                    res.push_back(s);
+                    sk.pop_back();
+                    continue;
+                }
+                if(p->left){
+                    setl.insert(p);
+                    p=p->left;
+                    sk.push_back(p);
+                    continue;
+                }
+                setr.insert(p);
+                p=p->right;
+                sk.push_back(p);
+            }else{
+                if(p->right){
+                    setr.insert(p);
+                    p=p->right;
+                    sk.push_back(p);
+                    continue;
+                }
+                setr.insert(p);
+
+            }
+        }else{
+            sk.pop_back();
+        }
+    }
+    for(auto i:res){
+        cout<<i<<endl;
+    }
+    return res;
+}

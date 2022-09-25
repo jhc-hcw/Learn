@@ -1,3 +1,4 @@
-C:/Users/jhc/Desktop/github/Learn/clion/temple/cmake-build-debug/CMakeFiles/temple.dir
-C:/Users/jhc/Desktop/github/Learn/clion/temple/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/jhc/Desktop/github/Learn/clion/temple/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/jhc/桌面/Learn/clion/temple/cmake-build-debug/CMakeFiles/temple.dir
+/home/jhc/桌面/Learn/clion/temple/cmake-build-debug/CMakeFiles/test.dir
+/home/jhc/桌面/Learn/clion/temple/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jhc/桌面/Learn/clion/temple/cmake-build-debug/CMakeFiles/rebuild_cache.dir

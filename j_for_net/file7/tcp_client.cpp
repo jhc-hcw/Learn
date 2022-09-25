@@ -7,7 +7,7 @@
 #include<unistd.h>
 #include<arpa/inet.h>
 using namespace std;
-static const int PORT=8888;
+static const int PORT=8080;
 void process_conn_client(int s);
 int main(int argc,char *argv[]){
     sockaddr_in server_addr={0};

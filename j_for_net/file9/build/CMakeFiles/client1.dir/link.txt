@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/client1.dir/client1.cpp.o CMakeFiles/client1.dir/proce1.cpp.o -o bin/client1 
+/usr/bin/c++ -rdynamic CMakeFiles/client1.dir/client1.cpp.o CMakeFiles/client1.dir/proce1.cpp.o -o client1 
