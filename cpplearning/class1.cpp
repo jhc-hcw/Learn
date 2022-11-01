@@ -32,5 +32,6 @@ int main(){
     t.setall(&c);
     t.printfa();
     std::cout <<"c=="<<c<<endl;
+    std::cout<<"我复活"<<endl;
     return 0;
 }

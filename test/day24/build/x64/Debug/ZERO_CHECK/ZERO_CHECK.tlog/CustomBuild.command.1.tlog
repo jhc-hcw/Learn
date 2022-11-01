@@ -1,0 +1,10 @@
+^C:\USERS\JHC\DESKTOP\GITHUB\LEARN\TEST\DAY24\BUILD\CMAKEFILES\5612E542AB43E4306A952511C68273FA\GENERATE.STAMP.RULE
+setlocal
+D:\Qt\Tools\CMake_64\bin\cmake.exe -SC:/Users/jhc/Desktop/github/Learn/test/day24 -BC:/Users/jhc/Desktop/github/Learn/test/day24/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/jhc/Desktop/github/Learn/test/day24/build/day24.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

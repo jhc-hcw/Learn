@@ -72,15 +72,15 @@ CMakeFiles/temple.dir/main.cpp.obj: CMakeFiles/temple.dir/flags.make
 CMakeFiles/temple.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/temple.dir/main.cpp.obj: CMakeFiles/temple.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\jhc\Desktop\github\Learn\clion\temple\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/temple.dir/main.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/temple.dir/main.cpp.obj -MF CMakeFiles\temple.dir\main.cpp.obj.d -o CMakeFiles\temple.dir\main.cpp.obj -c C:\Users\jhc\Desktop\github\Learn\clion\temple\main.cpp
+	D:\app\msys2\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/temple.dir/main.cpp.obj -MF CMakeFiles\temple.dir\main.cpp.obj.d -o CMakeFiles\temple.dir\main.cpp.obj -c C:\Users\jhc\Desktop\github\Learn\clion\temple\main.cpp
 
 CMakeFiles/temple.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/temple.dir/main.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jhc\Desktop\github\Learn\clion\temple\main.cpp > CMakeFiles\temple.dir\main.cpp.i
+	D:\app\msys2\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\jhc\Desktop\github\Learn\clion\temple\main.cpp > CMakeFiles\temple.dir\main.cpp.i
 
 CMakeFiles/temple.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/temple.dir/main.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jhc\Desktop\github\Learn\clion\temple\main.cpp -o CMakeFiles\temple.dir\main.cpp.s
+	D:\app\msys2\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\jhc\Desktop\github\Learn\clion\temple\main.cpp -o CMakeFiles\temple.dir\main.cpp.s
 
 # Object files for target temple
 temple_OBJECTS = \
