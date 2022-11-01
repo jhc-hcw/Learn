@@ -169,19 +169,6 @@ service2/fast:
 .PHONY : service2/fast
 
 #=============================================================================
-# Target rules for targets named service3
-
-# Build rule for target.
-service3: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 service3
-.PHONY : service3
-
-# fast build rule for target.
-service3/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/build
-.PHONY : service3/fast
-
-#=============================================================================
 # Target rules for targets named client3
 
 # Build rule for target.
@@ -195,17 +182,30 @@ client3/fast:
 .PHONY : client3/fast
 
 #=============================================================================
-# Target rules for targets named select
+# Target rules for targets named service3
 
 # Build rule for target.
-select: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 select
-.PHONY : select
+service3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 service3
+.PHONY : service3
 
 # fast build rule for target.
-select/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/select.dir/build.make CMakeFiles/select.dir/build
-.PHONY : select/fast
+service3/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/build
+.PHONY : service3/fast
+
+#=============================================================================
+# Target rules for targets named client4
+
+# Build rule for target.
+client4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client4
+.PHONY : client4
+
+# fast build rule for target.
+client4/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/build
+.PHONY : client4/fast
 
 client1.o: client1.cpp.o
 .PHONY : client1.o
@@ -236,6 +236,30 @@ client1.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client2.dir/build.make CMakeFiles/client2.dir/client1.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client3.dir/build.make CMakeFiles/client3.dir/client1.cpp.s
 .PHONY : client1.cpp.s
+
+client2.o: client2.cpp.o
+.PHONY : client2.o
+
+# target to build an object file
+client2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/client2.cpp.o
+.PHONY : client2.cpp.o
+
+client2.i: client2.cpp.i
+.PHONY : client2.i
+
+# target to preprocess a source file
+client2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/client2.cpp.i
+.PHONY : client2.cpp.i
+
+client2.s: client2.cpp.s
+.PHONY : client2.s
+
+# target to generate assembly for a file
+client2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/client2.cpp.s
+.PHONY : client2.cpp.s
 
 proce1.o: proce1.cpp.o
 .PHONY : proce1.o
@@ -296,8 +320,8 @@ proce3.o: proce3.cpp.o
 
 # target to build an object file
 proce3.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/proce3.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client3.dir/build.make CMakeFiles/client3.dir/proce3.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/proce3.cpp.o
 .PHONY : proce3.cpp.o
 
 proce3.i: proce3.cpp.i
@@ -305,8 +329,8 @@ proce3.i: proce3.cpp.i
 
 # target to preprocess a source file
 proce3.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/proce3.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client3.dir/build.make CMakeFiles/client3.dir/proce3.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/proce3.cpp.i
 .PHONY : proce3.cpp.i
 
 proce3.s: proce3.cpp.s
@@ -314,33 +338,33 @@ proce3.s: proce3.cpp.s
 
 # target to generate assembly for a file
 proce3.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/proce3.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client3.dir/build.make CMakeFiles/client3.dir/proce3.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/proce3.cpp.s
 .PHONY : proce3.cpp.s
 
-select.o: select.cpp.o
-.PHONY : select.o
+proce4.o: proce4.cpp.o
+.PHONY : proce4.o
 
 # target to build an object file
-select.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/select.dir/build.make CMakeFiles/select.dir/select.cpp.o
-.PHONY : select.cpp.o
+proce4.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/proce4.cpp.o
+.PHONY : proce4.cpp.o
 
-select.i: select.cpp.i
-.PHONY : select.i
+proce4.i: proce4.cpp.i
+.PHONY : proce4.i
 
 # target to preprocess a source file
-select.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/select.dir/build.make CMakeFiles/select.dir/select.cpp.i
-.PHONY : select.cpp.i
+proce4.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/proce4.cpp.i
+.PHONY : proce4.cpp.i
 
-select.s: select.cpp.s
-.PHONY : select.s
+proce4.s: proce4.cpp.s
+.PHONY : proce4.s
 
 # target to generate assembly for a file
-select.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/select.dir/build.make CMakeFiles/select.dir/select.cpp.s
-.PHONY : select.cpp.s
+proce4.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/proce4.cpp.s
+.PHONY : proce4.cpp.s
 
 service.o: service.cpp.o
 .PHONY : service.o
@@ -383,13 +407,16 @@ help:
 	@echo "... client1"
 	@echo "... client2"
 	@echo "... client3"
-	@echo "... select"
+	@echo "... client4"
 	@echo "... service1"
 	@echo "... service2"
 	@echo "... service3"
 	@echo "... client1.o"
 	@echo "... client1.i"
 	@echo "... client1.s"
+	@echo "... client2.o"
+	@echo "... client2.i"
+	@echo "... client2.s"
 	@echo "... proce1.o"
 	@echo "... proce1.i"
 	@echo "... proce1.s"
@@ -399,9 +426,9 @@ help:
 	@echo "... proce3.o"
 	@echo "... proce3.i"
 	@echo "... proce3.s"
-	@echo "... select.o"
-	@echo "... select.i"
-	@echo "... select.s"
+	@echo "... proce4.o"
+	@echo "... proce4.i"
+	@echo "... proce4.s"
 	@echo "... service.o"
 	@echo "... service.i"
 	@echo "... service.s"

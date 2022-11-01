@@ -4,3 +4,5 @@ project(temple)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(temple main.cpp)
+
+add_executable(test test.cpp)

@@ -1,6 +1,7 @@
 #include <iostream>
 #include"template.h"
 #include"Rational.h"
+#include<filesystem>
 bool ishw(string s){
     if(s.length()<=1){
         return true;
@@ -79,18 +80,18 @@ void quick_sort(vector<int> &v,int left,int right){
     }
 }
 
-int main(){
-<<<<<<< HEAD
-    string ss="mississippi";
-    string s="issip";
-    cout<<Solution541().reverseStr(ss,2);
-=======
-
-    vector<int> a={73,74,75,71,69,72,76,73};
-    auto res=Solution739().dailyTemperatures(a);
-    for(auto p:res){
-        cout<<p<<" ";
-    }
-    return 0;
->>>>>>> 2b32eb3171597edbf0cc8ae4873b0a66f890a5ca
-}
+//int main(){
+////<<<<<<< HEAD
+////    string ss="mississippi";
+////    string s="issip";
+////    cout<<Solution541().reverseStr(ss,2);
+////=======
+////
+////    vector<int> a={73,74,75,71,69,72,76,73};
+////    auto res=Solution739().dailyTemperatures(a);
+////    for(auto p:res){
+////        cout<<p<<" ";
+////    }
+////    return 0;
+////>>>>>>> 2b32eb3171597edbf0cc8ae4873b0a66f890a5ca
+//}

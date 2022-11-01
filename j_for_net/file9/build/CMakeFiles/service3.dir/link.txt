@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/service3.dir/service.cpp.o CMakeFiles/service3.dir/proce3.cpp.o -o bin/service3 
+/usr/bin/c++ -rdynamic CMakeFiles/service3.dir/service.cpp.o CMakeFiles/service3.dir/proce3.cpp.o -o service3 

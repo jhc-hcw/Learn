@@ -67,9 +67,9 @@ all: CMakeFiles/client1.dir/all
 all: CMakeFiles/service1.dir/all
 all: CMakeFiles/client2.dir/all
 all: CMakeFiles/service2.dir/all
-all: CMakeFiles/service3.dir/all
 all: CMakeFiles/client3.dir/all
-all: CMakeFiles/select.dir/all
+all: CMakeFiles/service3.dir/all
+all: CMakeFiles/client4.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -81,9 +81,9 @@ clean: CMakeFiles/client1.dir/clean
 clean: CMakeFiles/service1.dir/clean
 clean: CMakeFiles/client2.dir/clean
 clean: CMakeFiles/service2.dir/clean
-clean: CMakeFiles/service3.dir/clean
 clean: CMakeFiles/client3.dir/clean
-clean: CMakeFiles/select.dir/clean
+clean: CMakeFiles/service3.dir/clean
+clean: CMakeFiles/client4.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -119,7 +119,7 @@ CMakeFiles/client1.dir/clean:
 CMakeFiles/service1.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/service1.dir/build.make CMakeFiles/service1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/service1.dir/build.make CMakeFiles/service1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles --progress-num=12,13,14 "Built target service1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles --progress-num=13,14,15 "Built target service1"
 .PHONY : CMakeFiles/service1.dir/all
 
 # Build rule for subdir invocation for target.
@@ -171,7 +171,7 @@ CMakeFiles/client2.dir/clean:
 CMakeFiles/service2.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/service2.dir/build.make CMakeFiles/service2.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/service2.dir/build.make CMakeFiles/service2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles --progress-num=15,16,17 "Built target service2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles --progress-num=16,17,18 "Built target service2"
 .PHONY : CMakeFiles/service2.dir/all
 
 # Build rule for subdir invocation for target.
@@ -189,32 +189,6 @@ service2: CMakeFiles/service2.dir/rule
 CMakeFiles/service2.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/service2.dir/build.make CMakeFiles/service2.dir/clean
 .PHONY : CMakeFiles/service2.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/service3.dir
-
-# All Build rule for target.
-CMakeFiles/service3.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles --progress-num=18,19,20 "Built target service3"
-.PHONY : CMakeFiles/service3.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/service3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/service3.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles 0
-.PHONY : CMakeFiles/service3.dir/rule
-
-# Convenience name for target.
-service3: CMakeFiles/service3.dir/rule
-.PHONY : service3
-
-# clean rule for target.
-CMakeFiles/service3.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/clean
-.PHONY : CMakeFiles/service3.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/client3.dir
@@ -243,30 +217,56 @@ CMakeFiles/client3.dir/clean:
 .PHONY : CMakeFiles/client3.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/select.dir
+# Target rules for target CMakeFiles/service3.dir
 
 # All Build rule for target.
-CMakeFiles/select.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/select.dir/build.make CMakeFiles/select.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/select.dir/build.make CMakeFiles/select.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles --progress-num=10,11 "Built target select"
-.PHONY : CMakeFiles/select.dir/all
+CMakeFiles/service3.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles --progress-num=19,20,21 "Built target service3"
+.PHONY : CMakeFiles/service3.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/select.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/select.dir/all
+CMakeFiles/service3.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/service3.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles 0
-.PHONY : CMakeFiles/select.dir/rule
+.PHONY : CMakeFiles/service3.dir/rule
 
 # Convenience name for target.
-select: CMakeFiles/select.dir/rule
-.PHONY : select
+service3: CMakeFiles/service3.dir/rule
+.PHONY : service3
 
 # clean rule for target.
-CMakeFiles/select.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/select.dir/build.make CMakeFiles/select.dir/clean
-.PHONY : CMakeFiles/select.dir/clean
+CMakeFiles/service3.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/service3.dir/build.make CMakeFiles/service3.dir/clean
+.PHONY : CMakeFiles/service3.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/client4.dir
+
+# All Build rule for target.
+CMakeFiles/client4.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles --progress-num=10,11,12 "Built target client4"
+.PHONY : CMakeFiles/client4.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/client4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/client4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles 0
+.PHONY : CMakeFiles/client4.dir/rule
+
+# Convenience name for target.
+client4: CMakeFiles/client4.dir/rule
+.PHONY : client4
+
+# clean rule for target.
+CMakeFiles/client4.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client4.dir/build.make CMakeFiles/client4.dir/clean
+.PHONY : CMakeFiles/client4.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

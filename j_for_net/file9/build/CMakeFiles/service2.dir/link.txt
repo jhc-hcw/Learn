@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/service2.dir/service.cpp.o CMakeFiles/service2.dir/proce2.cpp.o -o bin/service2 
+/usr/bin/c++ -rdynamic CMakeFiles/service2.dir/service.cpp.o CMakeFiles/service2.dir/proce2.cpp.o -o service2 

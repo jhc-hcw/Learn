@@ -20,7 +20,8 @@ void process_conn_server(int s){
             return ;
         }
         //string message = string(buffer).length() +"bytes altogether\n";
-        sprintf(buffer,"%ld bytes altogether\n",size);
+        cout<<buffer<<endl;
+        sprintf(buffer,"%ld bytes altogether by jhc\n",size);
         send(s,buffer,strlen(buffer),0);
     }
     return ;

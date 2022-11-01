@@ -2,8 +2,8 @@
 /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/service1.dir
 /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/client2.dir
 /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/service2.dir
-/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/service3.dir
 /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/client3.dir
-/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/select.dir
+/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/service3.dir
+/home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/client4.dir
 /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/edit_cache.dir
 /home/jhc/桌面/Learn/j_for_net/file9/build/CMakeFiles/rebuild_cache.dir
