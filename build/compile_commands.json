@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/jhc/桌面/Learn/build",
-  "command": "/usr/bin/g++   -g -std=gnu++14 -o CMakeFiles/excise_J.dir/main.cpp.o -c /home/jhc/桌面/Learn/clion/excise_J/main.cpp",
-  "file": "/home/jhc/桌面/Learn/clion/excise_J/main.cpp"
-}
-]
