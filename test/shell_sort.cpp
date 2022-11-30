@@ -2,7 +2,7 @@
 using namespace std;
 
 
-void shell(int *data,int len){
+void shell(int *data,const int len){
     int s=len/2;
     int j;
     for(;s>0;s/=2){
@@ -14,9 +14,9 @@ void shell(int *data,int len){
                     data[j+s]=t;
                 }
             }
-            if(s==len-1){
-                i=len;
-            }
+            // if(s==len-1){
+            //     i=len;
+            // }
         }
     }
 }
@@ -38,7 +38,7 @@ void insert_sort(int *data,int len){
 int main(){
     int data[]={9,8,7,6,5,4,3,2,21,1,2,3,4,5,4,3,33434,343432,23,2,1,2,3,34,2,34,213,23,2,543,23,345,23,43,23,43,23,34,23,34,231,34,354,342,342,343,2,3,45,5,6,76,7,6,5,4,4,3,3,23,32,3,3,34,4};
     int len=sizeof(data)/4;
-    insert_sort(data,len);
+    shell(data,len);
     for(int i=0;i<len;i++){
         cout<<data[i]<<" ";
     }
