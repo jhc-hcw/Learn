@@ -267,4 +267,59 @@ git branch -D <name> 强行删除一个分支
 
 
 
+```shell
+git log --graph  #查看提交log并显示分支合并图！！！
+```
+
+可以在～./.zshrc配置文件中配置命令别名 **alias git-lot='git lot --graph'**
+
+```shell
+配置命令别名
+
+# 举例   其实git自带了别名，可是配置shell可以做到免写git前缀
+
+$ git config --global alias status st
+
+$ git config --global alias checkout co
+
+$ git config --global alias commit cm
+```
+
+
+
+
+
+```shell
+# 打一个名为"v1.0"的标签
+$ git tag v1.0
+# 查看所有标签列表
+$ git tag
+查看标签信息，git show <tagname>；
+$ git tag -a v1.0. #通过-a添加回自动打开vim界面进行message编辑，也可以使用-am 直接后面追加
+$ git show v1.0
+$ git tag -a v1.0 -m "version 1.0 released" #创建带有说明的标签，用-a打标签名，-m指定说明文字；
+删除标签，本地使用git tag -d <tagname>，远程则使用git push origin :refs/tags/<tagname>
+$ git tag -d v30.0  # 删除本地标签
+
+```
+
+
+
+```shell
+
+
+```
+
+
+
+请参照下面的表格。
+
+| 模式名称 | HEAD的位置 |  索引  | 工作目录 |
+| :------: | :--------: | :----: | :------: |
+|   soft   |    修改    | 不修改 |  不修改  |
+|  mixed   |    修改    |  修改  |  不修改  |
+|   hard   |    修改    |  修改  |   修改   |
+
+
+
 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
